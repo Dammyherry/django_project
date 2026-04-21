@@ -1,7 +1,8 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from myapp.views import home   # 👈 import your view directly
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('myapp.urls')),  # 👈 THIS MUST EXIST
+    path('', home),   # 👈 direct connection (no include needed)
 ]
