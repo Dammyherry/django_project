@@ -1,6 +1,9 @@
 from django.contrib import admin
 from django.urls import path
-from myapp.views import home
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("FINALLY WORKING 🎉")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
