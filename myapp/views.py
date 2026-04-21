@@ -1,4 +1,9 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
 def home(request):
-    return HttpResponse("IT IS WORKING")
+    students = [
+        {"name": "John", "course": "Math"},
+        {"name": "Jane", "course": "Biology"},
+        {"name": "Mike", "course": "Computer Science"},
+    ]
+    return render(request, 'myapp/home.html', {"students": students})
