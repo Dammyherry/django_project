@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Django Page</title>
+</head>
+<body>
+    <h1>Student List</h1>
+
+    {% for student in students %}
+        <p>{{ student.name }} - {{ student.course }}</p>
+    {% endfor %}
+</body>
+</html>
