@@ -1,0 +1,12 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+    <h2>Student Details</h2>
+
+    <div class="student-card">
+        <p><strong>Name:</strong> {{ student.name }}</p>
+        <p><strong>Course:</strong> {{ student.course }}</p>
+    </div>
+
+    <a href="/" class="btn">⬅ Back to Home</a>
+{% endblock %}

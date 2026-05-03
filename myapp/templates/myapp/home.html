@@ -1,13 +1,16 @@
-<html>
-<head>
-    <title>My Django Page</title>
-</head>
-<body>
-    <h1>Student List</h1>
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+    <h2>All Students</h2>
 
     {% for student in students %}
-        <p>{{ student.name }} - {{ student.course }}</p>
+        <div class="student-card">
+            <p>
+                <a href="/student/{{ student.id }}/">
+                    <strong>{{ student.name }}</strong>
+                </a> 
+                — {{ student.course }}
+            </p>
+        </div>
     {% endfor %}
-
-</body>
-</html>
+{% endblock %}

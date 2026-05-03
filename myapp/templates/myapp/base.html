@@ -1,0 +1,21 @@
+{% load static %}
+<html>
+<head>
+    <title>Student Directory</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <header>
+        <h1>🎓 Student Directory</h1>
+        <a href="/" style="color:white; margin-right:15px;">🏠 Home</a>
+        <a href="/add/" style="color:white;">➕ Add Student</a>
+    </header>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>

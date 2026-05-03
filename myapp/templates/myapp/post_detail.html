@@ -1,0 +1,28 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">Edit</a>
+            <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}">Delete</a>
+            {% if post.published_date is None %}
+                <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+            {% endif %}
+        {% endif %}
+        <p>{{ post.published_date }}</p>
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+    <hr>
+    <h3>Comments</h3>
+    {% for comment in comments %}
+        <div class="comment">
+            <p>{{ comment.created_date }}</p>
+            <p><strong>{{ comment.author }}</strong></p>
+            <p>{{ comment.text|linebreaks }}</p>
+        </div>
+    {% empty %}
+        <p>No comments yet!</p>
+    {% endfor %}
+    <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
+{% endblock %}

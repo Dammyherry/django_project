@@ -1,0 +1,20 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+    <h2>➕ Add New Student</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>{{ form.name.label }}</label>
+        {{ form.name }}
+
+        <label>{{ form.course.label }}</label>
+        {{ form.course }}
+
+        <button type="submit" class="btn">Add Student</button>
+    </form>
+
+    <br>
+    <a href="/" class="btn" style="background-color: gray;">⬅ Cancel</a>
+{% endblock %}
